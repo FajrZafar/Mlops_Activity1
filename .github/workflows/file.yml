@@ -1,0 +1,16 @@
+name: Run 'main.py'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-test-case:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Code
+        uses: actions/checkout@v2
+
+      - name: Run "main.py"
+        run: python3 main.py
