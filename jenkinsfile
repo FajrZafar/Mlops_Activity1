@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    tools {
-        // Specify the Python installation
-       tool name: 'Python3', type: 'hudson.plugins.python.PythonInstallation'
-    }
-
     stages {
         stage('Checkout') {
             steps {
