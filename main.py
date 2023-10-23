@@ -1,14 +1,15 @@
-class wallet:
-    balance = 0
+class Wallet:
+    def __init__(self):
+        self.balance = 0
 
-    def getBalance(self):
+    def get_balance(self):
         return self.balance
-    
-    def addBalance(self, balance):
-        self.balance += balance
-    
-    def removeBalance(self, balance):
-        self.balance -= balance
+
+    def add_balance(self, amount):
+        self.balance += amount
+
+    def remove_balance(self, amount):
+        self.balance -= amount
 
 #you can put the test case here in main or make a separate file (test_main) 
 # this is a test case:
