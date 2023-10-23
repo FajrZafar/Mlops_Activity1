@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout your code from GitHub
+                script {
+                    checkout([$class: 'GitSCM',
+                        branches: [[name: '*/main']],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '']],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[url: 'https://github.com/FajrZafar/Mlops_Activity1']]
+                    ])
+                }
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh 'pytest test_main.py'
+            }
+        }
+    }
+
+    post {
+        always {
+            // Archive test results
+            junit '**/target/test-reports/*.xml'
+        }
+    }
+}
