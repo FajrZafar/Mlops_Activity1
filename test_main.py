@@ -1,14 +1,16 @@
-from main import Wallet  # Capitalized Wallet to match class name
+from main import wallet
 
-balance = Wallet()  # Instantiate the Wallet class
+balance = wallet()
 
-def test_add_balance():  # Function names should start with 'test_'
-    balance.add_balance(100)
-    assert balance.get_balance() == 100
+#here we made 3 different test cases
+def addBalance():
+    balance.addBalance(100)
+    assert balance.addBalance()==100
 
-def test_remove_balance():  # Function names should start with 'test_'
-    balance.remove_balance(100)
-    assert balance.get_balance() == 0
+def removeBalance():
+    balance.removeBalance(100)
+    assert balance.removeBalance()==0
 
-def test_check_balance():  # Function names should start with 'test_'
-    assert balance.get_balance() == 0
+def checkBalance():
+    assert balance.getBalance() == 0 
+
