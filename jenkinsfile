@@ -25,7 +25,18 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh '/Users/fajrzafar-nu/opt/anaconda3/bin/python3 -m pytest --junitxml=${currentBuild.rawBuild.workspace}/report.xml test_main.py'
+                sh 'steps {
+    // ... other steps ...
+
+    stage('Run Tests') {
+        steps {
+            script {
+                sh '/Users/fajrzafar-nu/opt/anaconda3/bin/python3 -m pytest --junitxml /Users/fajrzafar-nu/.jenkins/workspace/Mlops_Task6/report.xml test_main.py'
+            }
+        }
+    }
+}
+'
             }
         }
     }
