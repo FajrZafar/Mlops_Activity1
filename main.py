@@ -1,4 +1,4 @@
-class wallet:
+class Wallet:
     balance = 0
 
     def getBalance(self):
