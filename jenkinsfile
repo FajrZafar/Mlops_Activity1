@@ -29,6 +29,14 @@ pipeline {
             }
         }
     }
+      stage('Groovy'){
+            steps {
+                script {
+                    groove = load 'fajr.groovy'
+                    groove.testfunc('prod')
+                }
+            }
+        }
 
     post {
         always {
