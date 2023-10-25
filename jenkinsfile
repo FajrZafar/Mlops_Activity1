@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your code from GitHub
                 script {
                     checkout([$class: 'GitSCM',
                         branches: [[name: '*/main']],
@@ -28,8 +27,8 @@ pipeline {
                 sh '/Users/fajrzafar-nu/opt/anaconda3/bin/python3 -m pytest --junitxml=${WORKSPACE}/report.xml test_main.py'
             }
         }
-    }
-      stage('Groovy'){
+
+        stage('Groovy') {
             steps {
                 script {
                     groove = load 'fajr.groovy'
@@ -37,10 +36,10 @@ pipeline {
                 }
             }
         }
+    }
 
     post {
         always {
-            // Archive test results
             junit '**/report.xml'
         }
     }
